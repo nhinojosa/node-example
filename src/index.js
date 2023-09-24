@@ -1,11 +1,14 @@
 //import './helpers/dotenv'
 
-//const dotenv = require('dotenv')
+const dotenv = require('dotenv').config()
 const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
 const helmet = require('helmet')
-import logger from './helpers/logger'
+const logger = require('pino')()
+
+//const router = require('./routes')
+//import logger from './helpers/logger'
 import router from './routes'
 import {notFound, errorHandler} from './helpers/errors'
 
