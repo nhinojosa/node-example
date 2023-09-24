@@ -10,8 +10,9 @@ const logger = require('pino')()
 const router = require('./routes')
 //import logger from './helpers/logger'
 //import router from './routes'
-import {notFound, errorHandler} from './helpers/errors'
-
+//import {notFound, errorHandler} from './helpers/errors'
+const notFound = require('./helpers/errors').notFound
+const errorHandler = require('./helpers/errors').errorHandler
 
 
 const app = express()
