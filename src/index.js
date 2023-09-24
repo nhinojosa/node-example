@@ -7,9 +7,9 @@ const cors = require('cors')
 const helmet = require('helmet')
 const logger = require('pino')()
 
-//const router = require('./routes')
+const router = require('./routes')
 //import logger from './helpers/logger'
-import router from './routes'
+//import router from './routes'
 import {notFound, errorHandler} from './helpers/errors'
 
 
