@@ -1,7 +1,9 @@
-const express = require('express')
-const router = express.Router()
-const root = require('./root')
+import { Router } from 'express'
 
-router.use(root)
+import root from './root'
 
-module.exports = router;
+const router = Router()
+
+router.use('/', root)
+
+export default router

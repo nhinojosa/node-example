@@ -1,29 +1,23 @@
-//import './helpers/dotenv'
+import './utils/config'
+import express from 'express'
+import morgan from 'morgan'
+import cors from 'cors'
+import helmet from 'helmet'
 
-const dotenv = require('dotenv').config()
-const express = require('express')
-const morgan = require('morgan')
-const cors = require('cors')
-const helmet = require('helmet')
-const logger = require('pino')()
-
-const router = require('./routes')
-//import logger from './helpers/logger'
-//import router from './routes'
-//import {notFound, errorHandler} from './helpers/errors'
-const notFound = require('./helpers/errors').notFound
-const errorHandler = require('./helpers/errors').errorHandler
-
-
+import logger from './utils/logger'
+import router from './routes'
+import {notFound, errorHandler} from './utils/errors'
+const port = Number(process.env.PORT) || 3000
 const app = express()
-const port = process.env.PORT || 3000
 
 app.use(morgan(process.env.MORGAN_LOG))
-app.use(cors({ origin: process.env.ORIGIN }))
+app.use(cors({origin: process.env.CORS_ORIGIN}))
 app.use(helmet())
-app.use(router)
 
-app.use(notFound)
+app.use('/', router)
+
 app.use(errorHandler)
 
-app.listen(port, ()=>logger.info(`Application started at http://localhost:${process.env.PORT}`))
+app.listen(port, () => {
+    logger.info(`Server running on port ${port}`)
+})

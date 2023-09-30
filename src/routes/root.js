@@ -1,11 +1,13 @@
-const express = require('express')
-const router = express.Router()
-const logger = require('pino')()
+import { Router } from 'express'
 
+import logger from '../utils/logger'
 
-router.get('/', (req,res) => {
-    logger.info("Hello from root")
-    res.send({msg: process.env.TITLE})
+const router = Router()
+
+router.get('/', (req, res) => {
+  logger.info('Inside the root path')
+  const title = process.env.TITLE || 'Server'
+  res.send({ msg: title })
 })
 
-module.exports = router;
+export default router
