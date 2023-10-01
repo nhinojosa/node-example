@@ -3,6 +3,7 @@ import express from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
 import helmet from 'helmet'
+import bodyParser from 'body-parser'
 
 import logger from './utils/logger'
 import router from './routes'
@@ -13,7 +14,7 @@ const app = express()
 app.use(morgan(process.env.MORGAN_LOG))
 app.use(cors({origin: process.env.CORS_ORIGIN}))
 app.use(helmet())
-
+app.use(bodyParser.json())
 app.use('/', router)
 
 app.use(notFound)
