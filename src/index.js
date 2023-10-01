@@ -16,6 +16,7 @@ app.use(helmet())
 
 app.use('/', router)
 
+app.use(notFound)
 app.use(errorHandler)
 
 app.listen(port, () => {
