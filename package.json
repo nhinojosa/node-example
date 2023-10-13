@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "build": "babel ./src --out-dir ./build",
+    "postbuild": "prisma generate",
     "start": "node ./build/index.js",
     "dev": "nodemon --exec npx babel-node src/index.js",
     "lint": "eslint ."
