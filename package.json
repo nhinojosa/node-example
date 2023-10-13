@@ -18,9 +18,11 @@
     "@babel/plugin-transform-runtime": "^7.22.15",
     "@babel/preset-env": "^7.22.20",
     "@babel/runtime": "^7.22.15",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "prisma": "^5.4.2"
   },
   "dependencies": {
+    "@prisma/client": "^5.4.2",
     "body-parser": "^1.20.2",
     "consola": "^3.2.3",
     "cors": "^2.8.5",
